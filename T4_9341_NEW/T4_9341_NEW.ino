@@ -14,6 +14,11 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTH
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+/*
+   1/08/2018 changed part of json code in order to be compatible with new release of the ArduinoJson library (V6.2.3beta)
+   (comments where code was modified)
+*/
+
 
 #include <ArduinoJson.h>
 
@@ -179,6 +184,9 @@ data.toCharArray(buffer, sizeof(buffer));
 buffer[data.length() + 1] = '\0';
 
 const size_t bufferSize = JSON_OBJECT_SIZE(15) + 110;
+// old code
+/*
+ 
 DynamicJsonBuffer jsonBuffer(bufferSize);
 
 JsonObject& root = jsonBuffer.parseObject(buffer);
@@ -188,6 +196,25 @@ if (!root.success()) {
   return;
 }
 
+*/
+/*
+   fdufnews 01/08/2018
+   new code for compatibility with ArduinoJson V6.2.3
+*/
+StaticJsonDocument<bufferSize> jsonBuffer;
+
+DeserializationError success = deserializeJson(jsonBuffer, buffer);
+JsonObject root = jsonBuffer.as<JsonObject>();
+
+if (success) {
+  tft.println("parseObject() failed");
+  return;
+}
+/*
+    fdufnews 01/08/2018
+    end of new code
+*/
+ 
 String name = root["name"]; // "Bitcoin"
 String symbol = root["symbol"]; // "BTC"
 String price_usd = root["price_usd"]; // "573.137"
