@@ -1,12 +1,23 @@
-# ESP32-TTGO-T4 CryptoMoneyTicker v1.3
-
-
+# ESP32-TTGO-T4 CryptoMoneyTicker v1.4
 
 ![image](https://github.com/LilyGO/TTGO-T4-DEMO/blob/master/image/T4%20V1.1.jpg)
 
 ![image](https://github.com/LilyGO/TTGO-T4-DEMO/blob/master/image/image1.jpg)
 
 ![Demo_CrytptoMoneyTicker](https://github.com/mnett0/CryptoMoneyTicker/blob/master/medias/demo.gif)
+
+## Update 1.4
+
+Adding 3 buttons :
+* Go to the previous currency 
+* Stay on a crypto currency  
+* Go to the next one 
+
+Added support for SD cards and saved data (date, price) in .csv format  
+
+If you don't have any buttons or SD card, no problem the project will work 
+
+
 
 ## Update v1.3
 
