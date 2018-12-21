@@ -43,8 +43,8 @@ Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_MOSI, TFT_CLK, TFT_R
 
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RST);
 */
-const char* ssid = "TP-LINK_888";
-const char* password = "Zhang520521";
+const char* ssid = "Your WiFI ID";
+const char* password = "Your WiFi password";
 
 const char host[] = "api.coinmarketcap.com";
 
